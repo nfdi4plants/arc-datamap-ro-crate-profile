@@ -99,9 +99,10 @@ It is based on [schema.org/PropertyValue](https://schema.org/PropertyValue) and 
 |----------|----------|---------------|-------------|
 |@type |MUST|Text|must be '[schema.org/PropertyValue](https://schema.org/PropertyValue)'|
 |@id|MUST|Text or URL||
-|value|MUST|Text|Explication of the data fragment contents|
-|valueReference|COULD|URL|Value ontology reference|
+|value|SHOULD|Text|Explication of the data fragment contents|
+|valueReference|SHOULD|URL|Value ontology reference|
 |propertyID|SHOULD|URL|Reference to the data fragement using a [fragment selector](https://www.w3.org/TR/annotation-model/#selectors)|
-|unitText|COULD|Text|Unit of the data fragment|
-|unitCode|COULD|URL|Unit ontology reference|
-|description|COULD|Text|Can be used to describe further details of the fragment|
+|unitText|SHOULD|Text|Unit of the data fragment|
+|unitCode|SHOULD|URL|Unit ontology reference|
+|measurementMethod|SHOULD|Text|Name of the tool used to create the data.|
+|description|SHOULD|Text|Can be used to describe further details of the fragment|
