@@ -89,6 +89,7 @@ Describes and points to a *Fragment* of a Data file. Doesn't have a corresponden
 |name|COULD|Text or URL|The name of the file.|
 |comment|COULD|[schema.org/Comment](https://schema.org/Comment)|Comment|
 |encodingFormat|COULD|Text of URL|Media format as a MIME type|
+|pattern|COULD|DefinedTerm|Defines the shape or format of entries in this fragment.|
 |disambiguatingDescription|COULD|Text|The type of the data file (“Raw Data File", “Derived Data File" or "Image File").|
 
 ### Fragment Description
