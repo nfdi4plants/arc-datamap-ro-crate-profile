@@ -102,7 +102,9 @@ It is based on [schema.org/PropertyValue](https://schema.org/PropertyValue) and 
 |@id|MUST|Text or URL||
 |value|SHOULD|Text|Explication of the data fragment contents|
 |valueReference|SHOULD|URL|Value ontology reference|
-|propertyID|SHOULD|URL|Reference to the data fragement using a [fragment selector](https://www.w3.org/TR/annotation-model/#selectors)|
+|name|MUST|Text|Must be "FragmentDescriptor"|
+|propertyID|MUST|URL|Must be ""https://github.com/nfdi4plants/ARC-specification/blob/dev/ISA-XLSX.md#datamap-table-sheets""|
+|subjectOf|SHOULD|URL|Reference to the described data fragement using a [fragment selector](https://www.w3.org/TR/annotation-model/#selectors)|
 |unitText|SHOULD|Text|Unit of the data fragment|
 |unitCode|SHOULD|URL|Unit ontology reference|
 |measurementMethod|SHOULD|Text|Name of the tool used to create the data.|
