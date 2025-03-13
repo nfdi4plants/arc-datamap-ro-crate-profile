@@ -107,5 +107,6 @@ It is based on [schema.org/PropertyValue](https://schema.org/PropertyValue) and 
 |valueReference|SHOULD|URL|Value ontology reference|
 |unitText|SHOULD|Text|Unit of the data fragment|
 |unitCode|SHOULD|URL|Unit ontology reference|
+|alternateName|SHOULD|Text|The label of the fragment, e.g. a column header.|
 |measurementMethod|SHOULD|Text|Name of the tool used to create the data.|
 |description|SHOULD|Text|Can be used to describe further details of the fragment|
