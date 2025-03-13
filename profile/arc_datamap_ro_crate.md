@@ -31,7 +31,7 @@ DataFragment --about--> prop
 prop -.propertyID.-> DataFragment
 
 Process --result--> DataFile
-Process --parameterValue--> prop
+Process --result--> DataFragment
 
 dataset --processSequence--> Process
 dataset --variableMeasured--> prop
