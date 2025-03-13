@@ -85,11 +85,11 @@ Describes and points to a *Fragment* of a Data file. Doesn't have a corresponden
 |@id|MUST|Text or URL|Should be the path pointing to the file with a [fragment selector](https://www.w3.org/TR/annotation-model/#selectors) attached.|
 |usageInfo|MUST|Text of URL|(Formal) Description of the fragment selector.|
 |about|SHOULD|[schema.org/PropertyValue](https://schema.org/PropertyValue)|The fragment description for this fragment. It must follow the fragment description profile.|
+|pattern|SHOULD|DefinedTerm|Defines the shape or format of entries in this fragment.|
 |dateCreated|SHOULD|DateTime|When the Assay was created|
 |name|COULD|Text or URL|The name of the file.|
 |comment|COULD|[schema.org/Comment](https://schema.org/Comment)|Comment|
 |encodingFormat|COULD|Text of URL|Media format as a MIME type|
-|pattern|COULD|DefinedTerm|Defines the shape or format of entries in this fragment.|
 |disambiguatingDescription|COULD|Text|The type of the data file (“Raw Data File", “Derived Data File" or "Image File").|
 
 ### Fragment Description
@@ -100,11 +100,11 @@ It is based on [schema.org/PropertyValue](https://schema.org/PropertyValue) and 
 |----------|----------|---------------|-------------|
 |@type |MUST|Text|must be '[schema.org/PropertyValue](https://schema.org/PropertyValue)'|
 |@id|MUST|Text or URL||
-|value|SHOULD|Text|Explication of the data fragment contents|
-|valueReference|SHOULD|URL|Value ontology reference|
 |name|MUST|Text|Must be "FragmentDescriptor"|
 |propertyID|MUST|URL|Must be ""https://github.com/nfdi4plants/ARC-specification/blob/dev/ISA-XLSX.md#datamap-table-sheets""|
-|subjectOf|SHOULD|URL|Reference to the described data fragement using a [fragment selector](https://www.w3.org/TR/annotation-model/#selectors)|
+|subjectOf|MUST|URL|Reference to the described data fragement using a [fragment selector](https://www.w3.org/TR/annotation-model/#selectors)|
+|value|SHOULD|Text|Explication of the data fragment contents|
+|valueReference|SHOULD|URL|Value ontology reference|
 |unitText|SHOULD|Text|Unit of the data fragment|
 |unitCode|SHOULD|URL|Unit ontology reference|
 |measurementMethod|SHOULD|Text|Name of the tool used to create the data.|
