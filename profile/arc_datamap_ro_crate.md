@@ -28,7 +28,7 @@ DataFile --hasPart--> DataFragment
 dataset --hasPart--> DataFile
 
 DataFragment --about--> prop
-prop -.propertyID.-> DataFragment
+prop -.subjectOf.-> DataFragment
 
 Process --result--> DataFile
 Process --result--> DataFragment
@@ -44,7 +44,7 @@ Is based upon [schema.org/Dataset](https://schema.org/Dataset) and maps to the [
 
 | Property | Required | Expected Type | Description |
 |----------|----------|---------------|-------------|
-|@type |MUST|Text|must be '[schema.org/Dataset](https://schema.org/Dataset)'|
+|@type |MUST|Text|Must be '[schema.org/Dataset](https://schema.org/Dataset)'|
 |@id|MUST|Text or URL|Should be a subdirectory corresponding to this assay.|
 |additionalType|MUST|Text or URL|‘Assay’ or ontology term to identify it as an Assay|
 |creator|MUST|[schema.org/Person](https://schema.org/Person)|The performer of the experiments.|
@@ -67,7 +67,7 @@ Describes and points to a Data file, and maps to the [ISA-JSON Data](https://isa
 
 | Property | Required | Expected Type | Description |
 |----------|----------|---------------|-------------|
-|@type |MUST|Text|must be 'File' or 'MediaObject'|
+|@type |MUST|Text|Must be 'File' or 'MediaObject'|
 |@id|MUST|Text or URL|Should be the path pointing to the file./
 |name|MUST|Text or URL|The name of the file.|
 |comment|COULD|[schema.org/Comment](https://schema.org/Comment)|Comment|
@@ -81,7 +81,7 @@ Describes and points to a *Fragment* of a Data file. Doesn't have a corresponden
 
 | Property | Required | Expected Type | Description |
 |----------|----------|---------------|-------------|
-|@type |MUST|Text|must be 'File' or 'MediaObject'|
+|@type |MUST|Text|Must be 'File' or 'MediaObject'|
 |@id|MUST|Text or URL|Should be the path pointing to the file with a [fragment selector](https://www.w3.org/TR/annotation-model/#selectors) attached.|
 |usageInfo|MUST|Text of URL|(Formal) Description of the fragment selector.|
 |about|SHOULD|[schema.org/PropertyValue](https://schema.org/PropertyValue)|The fragment description for this fragment. It must follow the fragment description profile.|
@@ -98,10 +98,10 @@ It is based on [schema.org/PropertyValue](https://schema.org/PropertyValue) and 
 
 | Property | Required | Expected Type | Description |
 |----------|----------|---------------|-------------|
-|@type |MUST|Text|must be '[schema.org/PropertyValue](https://schema.org/PropertyValue)'|
+|@type |MUST|Text|Must be '[schema.org/PropertyValue](https://schema.org/PropertyValue)'|
 |@id|MUST|Text or URL||
 |name|MUST|Text|Must be "FragmentDescriptor"|
-|propertyID|MUST|URL|Must be ""https://github.com/nfdi4plants/ARC-specification/blob/dev/ISA-XLSX.md#datamap-table-sheets""|
+|propertyID|MUST|URL|Must be "https://github.com/nfdi4plants/ARC-specification/blob/dev/ISA-XLSX.md#datamap-table-sheets"|
 |subjectOf|MUST|URL|Reference to the described data fragement using a [fragment selector](https://www.w3.org/TR/annotation-model/#selectors)|
 |value|SHOULD|Text|Explication of the data fragment contents|
 |valueReference|SHOULD|URL|Value ontology reference|
