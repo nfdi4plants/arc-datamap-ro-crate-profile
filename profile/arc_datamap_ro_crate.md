@@ -10,7 +10,7 @@ The current plan is to use `MediaObject` for data fragments and annotate them th
 - Each entry in the datamap becomes one entry in `variableMeasured` of type `PropertyValue`.
 - Each data fragment becomes an object of type `MediaObject`, referenced from its file object through `hasPart`.
 - The data fragments from the data map point to descriptions in form of a `PropertyValue` through the `about` property.
-- The `PropertyValue` objects point back through `propertyID`, although this is not a valid jsonld link.
+- The `PropertyValue` objects point back through `subjectOf`.
 
 ```mermaid
 flowchart TD
@@ -28,10 +28,10 @@ DataFile --hasPart--> DataFragment
 dataset --hasPart--> DataFile
 
 DataFragment --about--> prop
-prop -.propertyID.-> DataFragment
+prop -.subjectOf.-> DataFragment
 
 Process --result--> DataFile
-Process --parameterValue--> prop
+Process --result--> DataFragment
 
 dataset --processSequence--> Process
 dataset --variableMeasured--> prop
@@ -44,7 +44,7 @@ Is based upon [schema.org/Dataset](https://schema.org/Dataset) and maps to the [
 
 | Property | Required | Expected Type | Description |
 |----------|----------|---------------|-------------|
-|@type |MUST|Text|must be '[schema.org/Dataset](https://schema.org/Dataset)'|
+|@type |MUST|Text|Must be '[schema.org/Dataset](https://schema.org/Dataset)'|
 |@id|MUST|Text or URL|Should be a subdirectory corresponding to this assay.|
 |additionalType|MUST|Text or URL|‘Assay’ or ontology term to identify it as an Assay|
 |creator|MUST|[schema.org/Person](https://schema.org/Person)|The performer of the experiments.|
@@ -67,7 +67,7 @@ Describes and points to a Data file, and maps to the [ISA-JSON Data](https://isa
 
 | Property | Required | Expected Type | Description |
 |----------|----------|---------------|-------------|
-|@type |MUST|Text|must be 'File' or 'MediaObject'|
+|@type |MUST|Text|Must be 'File' or 'MediaObject'|
 |@id|MUST|Text or URL|Should be the path pointing to the file./
 |name|MUST|Text or URL|The name of the file.|
 |comment|COULD|[schema.org/Comment](https://schema.org/Comment)|Comment|
@@ -81,10 +81,11 @@ Describes and points to a *Fragment* of a Data file. Doesn't have a corresponden
 
 | Property | Required | Expected Type | Description |
 |----------|----------|---------------|-------------|
-|@type |MUST|Text|must be 'File' or 'MediaObject'|
+|@type |MUST|Text|Must be 'File' or 'MediaObject'|
 |@id|MUST|Text or URL|Should be the path pointing to the file with a [fragment selector](https://www.w3.org/TR/annotation-model/#selectors) attached.|
 |usageInfo|MUST|Text of URL|(Formal) Description of the fragment selector.|
 |about|SHOULD|[schema.org/PropertyValue](https://schema.org/PropertyValue)|The fragment description for this fragment. It must follow the fragment description profile.|
+|pattern|SHOULD|DefinedTerm|Defines the shape or format of entries in this fragment.|
 |dateCreated|SHOULD|DateTime|When the Assay was created|
 |name|COULD|Text or URL|The name of the file.|
 |comment|COULD|[schema.org/Comment](https://schema.org/Comment)|Comment|
@@ -97,12 +98,15 @@ It is based on [schema.org/PropertyValue](https://schema.org/PropertyValue) and 
 
 | Property | Required | Expected Type | Description |
 |----------|----------|---------------|-------------|
-|@type |MUST|Text|must be '[schema.org/PropertyValue](https://schema.org/PropertyValue)'|
+|@type |MUST|Text|Must be '[schema.org/PropertyValue](https://schema.org/PropertyValue)'|
 |@id|MUST|Text or URL||
+|name|MUST|Text|Must be "FragmentDescriptor"|
+|propertyID|MUST|URL|Must be "https://github.com/nfdi4plants/ARC-specification/blob/dev/ISA-XLSX.md#datamap-table-sheets"|
+|subjectOf|MUST|URL|Reference to the described data fragement using a [fragment selector](https://www.w3.org/TR/annotation-model/#selectors)|
 |value|SHOULD|Text|Explication of the data fragment contents|
 |valueReference|SHOULD|URL|Value ontology reference|
-|propertyID|SHOULD|URL|Reference to the data fragement using a [fragment selector](https://www.w3.org/TR/annotation-model/#selectors)|
 |unitText|SHOULD|Text|Unit of the data fragment|
 |unitCode|SHOULD|URL|Unit ontology reference|
+|alternateName|SHOULD|Text|The label of the fragment, e.g. a column header.|
 |measurementMethod|SHOULD|Text|Name of the tool used to create the data.|
 |description|SHOULD|Text|Can be used to describe further details of the fragment|
