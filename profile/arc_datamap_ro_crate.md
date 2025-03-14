@@ -10,7 +10,7 @@ The current plan is to use `MediaObject` for data fragments and annotate them th
 - Each entry in the datamap becomes one entry in `variableMeasured` of type `PropertyValue`.
 - Each data fragment becomes an object of type `MediaObject`, referenced from its file object through `hasPart`.
 - The data fragments from the data map point to descriptions in form of a `PropertyValue` through the `about` property.
-- The `PropertyValue` objects point back through `propertyID`, although this is not a valid jsonld link.
+- The `PropertyValue` objects point back through `subjectOf`.
 
 ```mermaid
 flowchart TD
